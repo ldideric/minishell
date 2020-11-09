@@ -30,7 +30,6 @@ typedef struct			s_sep
 	char				**flags;
 }						t_sep;
 
-t_sep					seperate_flags(char **args, char **flags);
 typedef struct 			s_data
 {
 	int 				exitcode;
