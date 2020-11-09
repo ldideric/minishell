@@ -74,7 +74,7 @@ int					ft_ismatch(char c, char *s);
 
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_skipchar(char *s, char c);
-char				**ft_realloc_arr(char **ptr);
+char				**ft_realloc_arr(char ***ptr, int *i);
 char				ft_mapi_low(unsigned int a, char c);
 
 #endif

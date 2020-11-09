@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   echo.c                                             :+:    :+:            */
+/*   ft_echo.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 17:09:32 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/09 17:09:32 by jmelis        ########   odam.nl         */
+/*   Updated: 2020/11/09 18:50:12 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-char	**get_flags(void)
+char		**get_flags(void)
 {
-	char *flags[2];
+	char **flags;
 
+	flags = malloc(sizeof(char *) * 2);
 	flags[0] = "-n";
-	flags[1][0] = '\0';
+	flags[1] = "\0";
 	return (flags);
 }
 
-int		ft_echo(char **args)
+void		ft_echo(char **line)
 {
 	t_sep	arg;
 	char	**flags;
 
 	flags = get_flags();
-	arg = flags(args, g_flags)
+	arg = seperate_flags(line, flags);
+	return ;
 }

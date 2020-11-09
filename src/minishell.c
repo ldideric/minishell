@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 18:42:31 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 19:01:19 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static t_cfunc		specifier(char *s)
 {
 	t_cfunc					ret;
 	static const t_cfunc	func[4] = {
-		[0] = &exit,
+		[0] = &ft_exit,
 		[1] = &ft_echo,
 	};
 
