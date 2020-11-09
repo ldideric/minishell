@@ -1,35 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   minishell.h                                        :+:    :+:            */
+/*   ft_mapi_low.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 18:09:47 by ldideric      ########   odam.nl         */
+/*   Created: 2020/11/09 18:04:57 by ldideric      #+#    #+#                 */
+/*   Updated: 2020/11/09 18:05:10 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include <libft.h>
 
-# include <unistd.h>
-
-# include <libft.h>
-# include <ft_printf.h>
-# include <get_next_line.h>
-
-# define CLEAR "\e[1;1H\e[2J"
-
-typedef void			(*t_cfunc)(char **line);
-
-typedef struct			s_sep
+char			ft_mapi_low(unsigned int a, char c)
 {
-	char				**args;
-	char				**flags;
-}						t_sep;
-
-void					ft_exit(char **s);
-void					ft_echo(char **s);
-
-#endif
+	(void)a;
+	return (ft_tolower(c));
+}

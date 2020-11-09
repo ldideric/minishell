@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/09 17:47:28 by ldideric      ########   odam.nl          #
+#    Updated: 2020/11/09 18:09:27 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ SRC_PATH		=	src
 LIBFT_PATH		=	./$(SRC_PATH)/libft/
 PRINTF_PATH		=	./$(SRC_PATH)/printf/
 GNL_PATH		=	./$(SRC_PATH)/gnl/
+CMD_PATH		=	./$(SRC_PATH)/commands/
 
 LIBFT_SRC		=	ft_memset.c \
 					ft_bzero.c \
@@ -67,7 +68,8 @@ LIBFT_SRC		=	ft_memset.c \
 					ft_ismatch.c \
 					ft_strstr.c \
 					ft_skipchar.c \
-					ft_realloc_arr.c
+					ft_realloc_arr.c \
+					ft_mapi_low.c
 
 PRINTF_SRC		=	ft_printf.c \
 					ft_printf_bonus.c \
@@ -85,24 +87,29 @@ PRINTF_SRC		=	ft_printf.c \
 GNL_SRC			=	get_next_line.c \
 					get_next_line_utils.c
 
+CMD_SRC			=	ft_echo.c \
+					ft_exit.c
+
 LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)
 PRINTF_SRC_DIR	=	$(PRINTF_SRC:%=$(PRINTF_PATH)%)
 GNL_SRC_DIR		=	$(GNL_SRC:%=$(GNL_PATH)%)
+CMD_SRC_DIR		=	$(CMD_SRC:%=$(CMD_PATH)%)
 
 LIBFT_OBJ_DIR	=	$(LIBFT_SRC_DIR:.c=.o)
 PRINTF_OBJ_DIR	=	$(PRINTF_SRC_DIR:.c=.o)
 GNL_OBJ_DIR		=	$(GNL_SRC_DIR:.c=.o)
+CMD_OBJ_DIR		=	$(CMD_SRC_DIR:.c=.o)
 
 C_FILES			=	./$(SRC_PATH)/minishell.c \
 					$(LIBFT_SRC_DIR) \
 					$(PRINTF_SRC_DIR) \
-					$(GNL_SRC_DIR)
+					$(GNL_SRC_DIR) \
+					$(CMD_SRC_DIR)
 O_FILES			=	$(C_FILES:.c=.o)
 
 W_FLAGS			=	-Wall -Werror -Wextra
 LIB_FLAGS		=	-Iinc
 FLAGS			=	$(W_FLAGS) $(LIB_FLAGS)
-
 
 ifdef DEBUG
 FLAGS	+=	-g

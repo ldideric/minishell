@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 17:44:20 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 18:07:44 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,38 +14,36 @@
 
 char			*user = "\x1b[38;5;129mUser» ";
 
-void			ft_exit(char *s);
-void			ft_echo(char *s);
-
-static int		specifier(char *s)
+static t_cfunc		specifier(char *s)
 {
-	t_spec				ret;
-	static const t_spec	spec[4] = {
+	t_cfunc					ret;
+	static const t_cfunc	func[4] = {
 		[0] = &ft_exit,
 		[1] = &ft_echo,
 	};
 
 	ret = NULL;
-	ret = (ft_strncmp(ft_tolower(s), "exit", 4) == 0) ? spec[0] : ret;
-	ret = (ft_strncmp(ft_tolower(s), "echo", 4) == 0) ? spec[1] : ret;
+	ret = (ft_strncmp(s, "exit", 4) == 0) ? func[0] : ret;
+	ret = (ft_strncmp(s, "echo", 4) == 0) ? func[1] : ret;
+	free(s);
 	return (ret);
 }
 
-void		parser(char **line)
+void				parser(char **line)
 {
-	t_spec func;
+	t_cfunc func;
 
-	func = specifier(line[0]);
+	func = specifier(ft_strmapi(line[0], &ft_mapi_low));
 	if (func == NULL)
 	{
-		printf("msh: command not found: %s", line[0]);
+		ft_printf("msh: command not found: %s", line[0]);
 		return ;
 	}
 	func(line + 1);
 	ft_printf("%s\n", line);
 }
 
-int			main(void)
+int					main(void)
 {
 	char	*line;
 
