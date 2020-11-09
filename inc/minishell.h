@@ -23,4 +23,11 @@
 
 typedef int		(*t_spec)(va_list ap, t_arg list);
 
+typedef struct          s_sep {
+    char                **args;
+    char                **flags;
+}                       t_sep;
+
+
+
 #endif
