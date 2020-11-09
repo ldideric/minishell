@@ -30,7 +30,14 @@ typedef struct			s_sep
 	char				**flags;
 }						t_sep;
 
-int 					ft_echo(char **line);
-t_sep					seperate_flags(char **args, char **flags);
+typedef struct 			s_data
+{
+	int 				exitcode;
+}						t_data;
+
+t_data					g_data;
+
+void 					ft_echo(char **line);
+t_sep					seperate_flags(char **args, char **flags, char c);
 
 #endif

@@ -23,30 +23,28 @@ void		check_flags(char *arg, char **flags)
 	ft_printf("error");
 }
 
-t_sep		seperate_flags(char **args, char **flags)
+void 		norm(char **args, t_sep *ret, int *y)
+{
+	ft_realloc_arr(&ret->args, y);
+	ret->args[*y] = *args;
+	y[0]++;
+}
+
+t_sep		seperate_flags(char **args, char **flags, char c)
 {
     t_sep	ret;
-    int		x;
-    int 	y;
-
-    y = 0;
-    x = 0;
+	t_res	xy;
+    xy = (t_res){0, 0};
     while (*args)
-    {
-        if (**args == '-')
-        {
-            check_flags(*args, flags);
-            ft_realloc_arr(&ret.flags, &x);
-            ret.flags[x] = *args;
-            x++;
-        }
-        else
+		if (**args == '-' && c != '*')
 		{
-        	ft_realloc_arr(&ret.args, &y);
-        	ret.args[y] = *args;
-        	y++;
+			check_flags(*args, flags);
+			ft_realloc_arr(&ret.flags, &xy.x);
+			ret.flags[xy.x] = *args;
+			xy.x++;
 		}
-        args++;
-    }
+		else
+			norm(args, &ret, &xy.y);
+	args++;
     return (ret);
 }

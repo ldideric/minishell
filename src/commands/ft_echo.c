@@ -22,12 +22,11 @@ char	**get_flags(void)
 	return (flags);
 }
 
-int		ft_echo(char **line)
+void	ft_echo(char **line)
 {
 	t_sep	arg;
 	char	**flags;
 
 	flags = get_flags();
-	arg = seperate_flags(line, flags);
-	return (0);
+	arg = seperate_flags(line, flags, '*');
 }
