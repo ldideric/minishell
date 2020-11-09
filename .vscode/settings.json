@@ -41,7 +41,7 @@
 			{
 				"name": "RUN",
 				"color": "Lightyellow",
-				"command": "./cub3D maps/map.cub",
+				"command": "./minishell",
 			},
 		]
 	},

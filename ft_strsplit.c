@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/11/15 14:01:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 19:56:27 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 20:47:21 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,23 @@ typedef struct	s_split
 	int			j;
 }				t_split;
 
-t_split			g_sp;
+t_split			g_s;
 
-static char		*ft_strcut(const char *s)
+static char		**ft_strclear(void)
+{
+	int i;
+
+	i = 0;
+	while (g_s.arr[i])
+	{
+		free(g_s.arr[i]);
+		i++;
+	}
+	free(g_s.arr);
+	return (NULL);
+}
+
+static char		*ft_strcut(char *s)
 {
 	char	*str;
 	int		i;
@@ -34,7 +48,7 @@ static char		*ft_strcut(const char *s)
 	str = malloc(sizeof(char) * ft_strlen(s) + 1);
 	if (!str)
 		return (NULL);
-	while (*s != g_sp.c && *s != '\0')
+	while (*s != g_s.c && *s != '\0')
 	{
 		str[i] = *s;
 		i++;
@@ -44,59 +58,54 @@ static char		*ft_strcut(const char *s)
 	return (str);
 }
 
-static char		**ft_strclear(void)
-{
-	int i;
-
-	i = 0;
-	while (g_sp.arr[i])
-	{
-		free(g_sp.arr[i]);
-		i++;
-	}
-	free(g_sp.arr);
-	return (NULL);
-}
-
 static char		**split_loop(void)
 {
-	int		i;
-	int		str_cntr;
-
-	i = 0;
-	str_cntr = 0;
-	while (g_sp.s[i] != '\0')
+	while (g_s.s[g_s.i] != '\0')
 	{
-		while (g_sp.s[i] == g_sp.c)
-			i++;
-		if (g_sp.s[i] != g_sp.c && g_sp.s[i] != '\0')
+		while (g_s.s[g_s.i] == g_s.c)
+			g_s.i++;
+		if (g_s.s[g_s.i] != g_s.c && g_s.s[g_s.i] != '\0')
 		{
-			g_sp.arr[str_cntr] = ft_strcut(g_sp.s + i);
-			if (!g_sp.arr[str_cntr])
+			g_s.arr[g_s.j] = ft_strcut(g_s.s + g_s.i);
+			if (!g_s.arr[g_s.j])
 				return (ft_strclear());
-			str_cntr++;
-			while (g_sp.s[i] != g_sp.c && g_sp.s[i] != '\0')
-				i++;
+			g_s.j++;
+			while (g_s.s[g_s.i] != g_s.c && g_s.s[g_s.i] != '\0')
+				g_s.i++;
 		}
 	}
-	g_sp.arr[str_cntr] = NULL;
-	return (g_sp.arr);
+	g_s.arr[g_s.j] = NULL;
+	return (g_s.arr);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
 	if (!s)
 		return (NULL);
-	g_sp.arr = malloc(sizeof(char *) * 2);
-	if (!g_sp.arr)
+	g_s.s = (char *)s;
+	g_s.c = c;
+	g_s.arr = malloc(sizeof(char *) * 2);
+	if (!g_s.arr)
 		return (NULL);
-	g_sp.i = 0;
-	g_sp.j = 0;
-	g_sp.arr = split_loop();
-	if (!g_sp.arr)
+	g_s.i = 0;
+	g_s.j = 0;
+	g_s.arr = split_loop();
+	return ((g_s.arr) ? g_s.arr : NULL);
+}
+
+int				main(int av, char **ac)
+{
+	char	**s;
+	int		i;
+
+	i = 0;
+	if (av < 2)
+		return (0);
+	s = ft_strsplit(ac[1], ' ');
+	while (s[i])
 	{
-		;
-		return (ft_strclear());
+		ft_printf("%s\n", s[i]);
+		i++;
 	}
-	return (g_sp.arr);
+	return (0);
 }

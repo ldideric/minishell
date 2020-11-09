@@ -6,13 +6,11 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 19:06:04 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 20:56:44 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
-
-char			*user = "\x1b[38;5;129mUser» ";
 
 static t_cfunc		specifier(char *s)
 {
@@ -20,11 +18,13 @@ static t_cfunc		specifier(char *s)
 	static const t_cfunc	func[4] = {
 		[0] = &ft_exit,
 		[1] = &ft_echo,
+		[2] = &ft_pwd,
 	};
 
 	ret = NULL;
-	ret = (ft_strncmp(s, "exit", 4) == 0) ? func[0] : ret;
-	ret = (ft_strncmp(s, "echo", 4) == 0) ? func[1] : ret;
+	ret = (ft_strncmp(s, "exit", INT_MAX) == 0) ? func[0] : ret;
+	ret = (ft_strncmp(s, "echo", INT_MAX) == 0) ? func[1] : ret;
+	ret = (ft_strncmp(s, "pwd", INT_MAX) == 0) ? func[2] : ret;
 	free(s);
 	return (ret);
 }
@@ -36,7 +36,7 @@ void				parser(char **line)
 	func = specifier(ft_strmapi(line[0], &ft_mapi_low));
 	if (func == NULL)
 	{
-		ft_printf("minish: command not found: %s", line[0]);
+		ft_printf("msh: command not found: %s\n", line[0]);
 		return ;
 	}
 	func(line + 1);
@@ -49,7 +49,7 @@ int					main(void)
 	ft_printf(CLEAR);
 	while (1)
 	{
-		ft_printf(user);
+		ft_printf(USER);
 		get_next_line(STDIN_FILENO, &line);
 		parser(ft_split(line, ' '));
 		free(line);

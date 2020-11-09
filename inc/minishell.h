@@ -6,12 +6,16 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 20:07:41 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 20:27:18 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
+
+/*
+** Includes
+*/
 
 # include <unistd.h>
 # include <fcntl.h>
@@ -21,32 +25,30 @@
 # include <get_next_line.h>
 # include <limits.h>
 
+# include <structs.h>
+
+/*
+** Defines
+*/
+
 # define CLEAR "\e[1;1H\e[2J"
+# define USER "\x1b[38;5;129mUser\x1b[38;5;196m»\x1b[0m "
 
-typedef void			(*t_cfunc)(char **line);
-
-typedef struct			s_sep
-{
-	char				**args;
-	char				**flags;
-}						t_sep;
-
-typedef struct			s_data
-{
-	int					exitcode;
-}						t_data;
-
-typedef struct			s_res
-{
-	int					x;
-	int					y;
-}						t_res;
-
+/*
+** Globals
+*/
 
 t_data					g_data;
 
+/*
+** Function prototypes
+*/
+
+typedef void			(*t_cfunc)(char **line);
+
 void					ft_echo(char **line);
 void					ft_exit(char **line);
+void					ft_pwd(char **line);
 
 char					**ft_strsplit(char const *s, char c);
 t_sep					seperate_flags(char **args, char **flags, char c);
