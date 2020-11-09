@@ -54,10 +54,10 @@ int		ft_validate_file(char *file_path, char *error, ...)
 		file_path++;
 	file_path--;
 	if (check_extentions(file_path, &ap) == 0)
-		ft_error(-1, error);
+		ft_printf("error");
 	ret = open(path, O_RDONLY);
 	if (ret < 0)
-		ft_error(-2, path);
+		ft_printf("error");
 	va_end(ap);
 	return (ret);
 }
