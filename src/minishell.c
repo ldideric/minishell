@@ -18,12 +18,12 @@ static t_cfunc		specifier(char *s)
 {
 	t_cfunc					ret;
 	static const t_cfunc	func[4] = {
-		[0] = &ft_exit,
+//		[0] = &exit,
 		[1] = &ft_echo,
 	};
 
 	ret = NULL;
-	ret = (ft_strncmp(s, "exit", 4) == 0) ? func[0] : ret;
+//	ret = (ft_strncmp(s, "exit", 4) == 0) ? func[0] : ret;
 	ret = (ft_strncmp(s, "echo", 4) == 0) ? func[1] : ret;
 	free(s);
 	return (ret);

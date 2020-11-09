@@ -29,7 +29,6 @@ typedef struct			s_sep
 	char				**flags;
 }						t_sep;
 
-void					ft_exit(char **s);
 void					ft_echo(char **s);
 
 #endif

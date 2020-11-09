@@ -12,7 +12,20 @@
 
 #include <minishell.h>
 
-int    echo(char **args)
+char	**get_flags(void)
 {
+	char *flags[2];
 
+	flags[0] = "-n";
+	flags[1][0] = '\0';
+	return (flags);
+}
+
+int		ft_echo(char **args)
+{
+	t_sep	arg;
+	char	**flags;
+
+	flags = get_flags();
+	arg = flags(args, g_flags)
 }

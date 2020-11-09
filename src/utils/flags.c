@@ -12,34 +12,42 @@
 
 #include <minishell.c>
 
-int         check_flags(char *arg, char **flags)
+void		check_flags(char *arg, char **flags)
 {
     while (*flags)
     {
         if (ft_strncmp(arg, *flags))
-            return (1);
+        	return ;
         flags++;
     }
-    return (0);
+	ft_printf("error");
 }
 
-t_sep       flags(char **args, char **flags)
+t_sep		flags(char **args, char **flags)
 {
-    t_sep ret;
+    t_sep	ret;
+    int		x;
+    int 	y;
 
     ret = malloc(sizeof(t_sep));
-    
+    y = 0;
+    x = 0;
     while (*args)
     {
         if (**args == '-')
         {
-            if (!check_flags(args[i], flags))
-                ft_printf("error");
-            else
-            {
-                ft_realloc_arr()
-            }
+            check_flags(args[i], flags)
+            ft_realloc_arr(&ret.flags, &x)
+            ret.flags[x] = *args;
+            x++;
         }
+        else
+		{
+        	ft_realloc_arr(&ret.args, &y)
+        	ret.args[y] = *args;
+        	y++;
+		}
         args++;
     }
+    return (ret);
 }
