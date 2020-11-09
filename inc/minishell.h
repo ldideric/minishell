@@ -22,7 +22,7 @@
 
 # define CLEAR "\e[1;1H\e[2J"
 
-typedef int				(*t_cfunc)(char **line);
+typedef void			(*t_cfunc)(char **line);
 
 typedef struct			s_sep
 {
@@ -30,6 +30,7 @@ typedef struct			s_sep
 	char				**flags;
 }						t_sep;
 
+t_sep					seperate_flags(char **args, char **flags);
 typedef struct 			s_data
 {
 	int 				exitcode;
@@ -37,7 +38,8 @@ typedef struct 			s_data
 
 t_data					g_data;
 
-void 					ft_echo(char **line);
+void					ft_echo(char **line);
+void					ft_exit(char **line);
 t_sep					seperate_flags(char **args, char **flags, char c);
 
 #endif
