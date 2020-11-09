@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 17:29:53 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/09 20:54:17 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 20:58:41 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,10 @@ t_sep		seperate_flags(char **args, char **flags, char c)
 	t_res	xy;
 
 	xy = (t_res){0, 0};
+	ft_printf("hi: \n");
 	while (*args)
 	{
+		ft_printf("-  %s\n", *args);
 		if (**args == '-')
 		{
 			if (!check_flags(*args, flags) && c != '*')
