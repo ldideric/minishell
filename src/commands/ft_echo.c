@@ -3,16 +3,16 @@
 /*                                                        ::::::::            */
 /*   ft_echo.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 17:09:32 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/09 18:50:12 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 20:04:08 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-char		**get_flags(void)
+char	**get_flags(void)
 {
 	char **flags;
 
@@ -22,12 +22,11 @@ char		**get_flags(void)
 	return (flags);
 }
 
-void		ft_echo(char **line)
+void	ft_echo(char **line)
 {
 	t_sep	arg;
 	char	**flags;
 
 	flags = get_flags();
-	arg = seperate_flags(line, flags);
-	return ;
+	arg = seperate_flags(line, flags, '*');
 }

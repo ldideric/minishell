@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/09 19:01:04 by ldideric      ########   odam.nl          #
+#    Updated: 2020/11/09 20:06:19 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,7 @@ LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)
 PRINTF_SRC_DIR	=	$(PRINTF_SRC:%=$(PRINTF_PATH)%)
 GNL_SRC_DIR		=	$(GNL_SRC:%=$(GNL_PATH)%)
 CMD_SRC_DIR		=	$(CMD_SRC:%=$(CMD_PATH)%)
-UTIL_SRC_DIR	=	$(UITL_SRC:%=$(UTIL_PATH)%)
+UTIL_SRC_DIR	=	$(UTIL_SRC:%=$(UTIL_PATH)%)
 
 LIBFT_OBJ_DIR	=	$(LIBFT_SRC_DIR:.c=.o)
 PRINTF_OBJ_DIR	=	$(PRINTF_SRC_DIR:.c=.o)

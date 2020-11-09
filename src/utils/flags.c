@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   flags.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 17:29:53 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/09 17:29:53 by jmelis        ########   odam.nl         */
+/*   Updated: 2020/11/09 20:04:05 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,38 @@
 
 void		check_flags(char *arg, char **flags)
 {
-    while (*flags)
-    {
-        if (ft_strncmp(arg, *flags, INT_MAX))
-        	return ;
-        flags++;
-    }
+	while (*flags)
+	{
+		if (ft_strncmp(arg, *flags, INT_MAX))
+			return ;
+		flags++;
+	}
 	ft_printf("error");
 }
 
-t_sep		seperate_flags(char **args, char **flags)
+void		norm(char **args, t_sep *ret, int *y)
 {
-    t_sep	ret;
-    int		x;
-    int 	y;
+	ft_realloc_arr(&ret->args, y);
+	ret->args[*y] = *args;
+	y[0]++;
+}
 
-    y = 0;
-    x = 0;
-    while (*args)
-    {
-        if (**args == '-')
-        {
-            check_flags(*args, flags);
-            ft_realloc_arr(&ret.flags, &x);
-            ret.flags[x] = *args;
-            x++;
-        }
-        else
+t_sep		seperate_flags(char **args, char **flags, char c)
+{
+	t_sep	ret;
+	t_res	xy;
+
+	xy = (t_res){0, 0};
+	while (*args)
+		if (**args == '-' && c != '*')
 		{
-        	ft_realloc_arr(&ret.args, &y);
-        	ret.args[y] = *args;
-        	y++;
+			check_flags(*args, flags);
+			ft_realloc_arr(&ret.flags, &xy.x);
+			ret.flags[xy.x] = *args;
+			xy.x++;
 		}
-        args++;
-    }
-    return (ret);
+		else
+			norm(args, &ret, &xy.y);
+	args++;
+	return (ret);
 }
