@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 20:58:15 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 20:59:17 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 21:16:57 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,15 @@
 
 char		**ft_split(char *s, char c)
 {
-	if (s == ULL)
+	int i;
+
+	i = 0;
+	if (!s)
+		return (NULL)
+	while (s[i] != '\0')
+	{
+		
+		i++;
+	}
+	
 }
