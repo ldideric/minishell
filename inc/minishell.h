@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 19:02:04 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 19:43:13 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct			s_sep
 
 void					ft_echo(char **line);
 void					ft_exit(char **line);
+
 t_sep					seperate_flags(char **args, char **flags);
+char					**ft_strsplit(char const *s, char c);
 
 #endif

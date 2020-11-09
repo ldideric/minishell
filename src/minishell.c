@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 19:01:19 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 19:06:04 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void				parser(char **line)
 	func = specifier(ft_strmapi(line[0], &ft_mapi_low));
 	if (func == NULL)
 	{
-		ft_printf("msh: command not found: %s", line[0]);
+		ft_printf("minish: command not found: %s", line[0]);
 		return ;
 	}
 	func(line + 1);
