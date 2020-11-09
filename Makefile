@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/09 18:09:27 by ldideric      ########   odam.nl          #
+#    Updated: 2020/11/09 18:22:42 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,7 +87,8 @@ PRINTF_SRC		=	ft_printf.c \
 GNL_SRC			=	get_next_line.c \
 					get_next_line_utils.c
 
-CMD_SRC			=	ft_echo.c
+CMD_SRC			=	ft_echo.c \
+					ft_exit.c
 
 LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)
 PRINTF_SRC_DIR	=	$(PRINTF_SRC:%=$(PRINTF_PATH)%)
