@@ -26,7 +26,7 @@
 //	free(s);
 //}
 
-char	**ft_realloc_array(char ***str, int *size)
+char	**ft_realloc_arr(char ***str, int *size)
 {
 	char		**d;
 	int			i;

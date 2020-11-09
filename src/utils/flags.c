@@ -10,40 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minishell.c>
+#include <minishell.h>
 
 void		check_flags(char *arg, char **flags)
 {
     while (*flags)
     {
-        if (ft_strncmp(arg, *flags))
+        if (ft_strncmp(arg, *flags, INT_MAX))
         	return ;
         flags++;
     }
 	ft_printf("error");
 }
 
-t_sep		flags(char **args, char **flags)
+t_sep		seperate_flags(char **args, char **flags)
 {
     t_sep	ret;
     int		x;
     int 	y;
 
-    ret = malloc(sizeof(t_sep));
     y = 0;
     x = 0;
     while (*args)
     {
         if (**args == '-')
         {
-            check_flags(args[i], flags)
-            ft_realloc_arr(&ret.flags, &x)
+            check_flags(*args, flags);
+            ft_realloc_arr(&ret.flags, &x);
             ret.flags[x] = *args;
             x++;
         }
         else
 		{
-        	ft_realloc_arr(&ret.args, &y)
+        	ft_realloc_arr(&ret.args, &y);
         	ret.args[y] = *args;
         	y++;
 		}

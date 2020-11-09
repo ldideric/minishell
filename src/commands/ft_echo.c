@@ -14,18 +14,20 @@
 
 char	**get_flags(void)
 {
-	char *flags[2];
+	char **flags;
 
+	flags = malloc(sizeof(char *) * 2);
 	flags[0] = "-n";
-	flags[1][0] = '\0';
+	flags[1] = "\0";
 	return (flags);
 }
 
-int		ft_echo(char **args)
+int		ft_echo(char **line)
 {
 	t_sep	arg;
 	char	**flags;
 
 	flags = get_flags();
-	arg = flags(args, g_flags)
+	arg = seperate_flags(line, flags);
+	return (0);
 }

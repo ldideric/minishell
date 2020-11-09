@@ -87,7 +87,8 @@ PRINTF_SRC		=	ft_printf.c \
 GNL_SRC			=	get_next_line.c \
 					get_next_line_utils.c
 
-CMD_SRC			=	ft_echo.c
+CMD_SRC			=	ft_echo.c \
+                    ../utils/flags.c
 
 LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)
 PRINTF_SRC_DIR	=	$(PRINTF_SRC:%=$(PRINTF_PATH)%)

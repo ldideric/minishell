@@ -18,10 +18,11 @@
 # include <libft.h>
 # include <ft_printf.h>
 # include <get_next_line.h>
+# include <limits.h>
 
 # define CLEAR "\e[1;1H\e[2J"
 
-typedef void			(*t_cfunc)(char **line);
+typedef int				(*t_cfunc)(char **line);
 
 typedef struct			s_sep
 {
@@ -29,6 +30,7 @@ typedef struct			s_sep
 	char				**flags;
 }						t_sep;
 
-void					ft_echo(char **s);
+int 					ft_echo(char **line);
+t_sep					seperate_flags(char **args, char **flags);
 
 #endif
