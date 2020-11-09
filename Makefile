@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/09 16:41:58 by ldideric      ########   odam.nl          #
+#    Updated: 2020/11/09 17:47:28 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +66,8 @@ LIBFT_SRC		=	ft_memset.c \
 					ft_lstsize_bonus.c \
 					ft_ismatch.c \
 					ft_strstr.c \
-					ft_skipchar.c
+					ft_skipchar.c \
+					ft_realloc_arr.c
 
 PRINTF_SRC		=	ft_printf.c \
 					ft_printf_bonus.c \

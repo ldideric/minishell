@@ -6,36 +6,42 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 17:16:05 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/09 17:44:20 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-static int		specifier(char *s, t_base *b)
+char			*user = "\x1b[38;5;129mUser» ";
+
+void			ft_exit(char *s);
+void			ft_echo(char *s);
+
+static int		specifier(char *s)
 {
-	static const t_read	spec[4] = {
-		[0] = &rd_tex,
-		[1] = &rd_res,
-		[2] = &rd_f_c,
-		[3] = &rd_spr,
+	t_spec				ret;
+	static const t_spec	spec[4] = {
+		[0] = &ft_exit,
+		[1] = &ft_echo,
 	};
 
-	return (((*(u_int16_t *)s == *(u_int16_t *)"NO") && spec[0](s, b)) ||
-			((*(u_int16_t *)s == *(u_int16_t *)"EA") && spec[0](s, b)) ||
-			((*(u_int16_t *)s == *(u_int16_t *)"SO") && spec[0](s, b)) ||
-			((*(u_int16_t *)s == *(u_int16_t *)"WE") && spec[0](s, b)) ||
-			((*(u_int16_t *)s == *(u_int16_t *)"R ") && spec[1](s, b)) ||
-			((*(u_int16_t *)s == *(u_int16_t *)"F ") && spec[2](s, b)) ||
-			((*(u_int16_t *)s == *(u_int16_t *)"C ") && spec[2](s, b)) ||
-			((*s == *"S") && spec[3](s, b)));
+	ret = NULL;
+	ret = (ft_strncmp(ft_tolower(s), "exit", 4) == 0) ? spec[0] : ret;
+	ret = (ft_strncmp(ft_tolower(s), "echo", 4) == 0) ? spec[1] : ret;
+	return (ret);
 }
 
-void		parser(char *line)
+void		parser(char **line)
 {
-	if (ft_strncmp(line, "exit", 0))
-		exit(0);
-	ft_printf(CLEAR);
+	t_spec func;
+
+	func = specifier(line[0]);
+	if (func == NULL)
+	{
+		printf("msh: command not found: %s", line[0]);
+		return ;
+	}
+	func(line + 1);
 	ft_printf("%s\n", line);
 }
 
@@ -43,11 +49,13 @@ int			main(void)
 {
 	char	*line;
 
+	ft_printf(CLEAR);
 	while (1)
 	{
-		ft_printf("User» ");
+		ft_printf(user);
 		get_next_line(STDIN_FILENO, &line);
-		parser(line);
+		parser(ft_split(line, ' '));
+		free(line);
 	}
 	return (0);
 }
