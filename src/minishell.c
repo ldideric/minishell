@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 21:21:58 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/11 20:43:47 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,11 @@ void				parser(char **line)
 	t_cfunc func;
 
 	func = specifier(ft_strmapi(line[0], &ft_mapi_low));
-	if (func == NULL)
-	{
+	if (func != NULL)
+		func(line + 1);
+	else
 		ft_printf("msh: command not found: %s\n", line[0]);
-		return ;
-	}
-	func(line + 1);
+	free_line(line);
 }
 
 int					main(void)

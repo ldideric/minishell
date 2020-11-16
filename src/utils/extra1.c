@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_pwd.c                                           :+:    :+:            */
+/*   extra1.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/09 18:43:55 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/16 17:13:04 by ldideric      ########   odam.nl         */
+/*   Created: 2020/11/11 20:42:56 by ldideric      #+#    #+#                 */
+/*   Updated: 2020/11/11 20:44:15 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-void		ft_pwd(char **line)
+void			free_line(char **line)
 {
 	int i;
 
 	i = 0;
-	if (line[0] != NULL)
+	while (line[i] != NULL)
 	{
-		if (line[0][0] == '-')
-		{
-			while (line[0][i] == '-')
-				i++;
-			ft_printf("pwd: bad option: -%c\n", line[0][i]);
-		}
-		else
-			ft_printf("pwd: too many arguments\n");
+		free(line[i]);
+		i++;
 	}
-	else
-		ft_printf("%s\n", getcwd(NULL, 0));
+	free(line);
 }

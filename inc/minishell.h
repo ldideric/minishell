@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 20:27:18 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/11 20:44:50 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,7 @@ void					ft_pwd(char **line);
 
 char					**ft_strsplit(char const *s, char c);
 t_sep					seperate_flags(char **args, char **flags, char c);
+
+void					free_line(char **line);
 
 #endif
