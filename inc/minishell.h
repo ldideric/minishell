@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/11 20:44:50 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/23 20:57:11 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void					ft_echo(char **line);
 void					ft_exit(char **line);
 void					ft_pwd(char **line);
 
-char					**ft_strsplit(char const *s, char c);
+char					**state(char *s);
+int						realloc_state(char **s, char c, int new);
 t_sep					seperate_flags(char **args, char **flags, char c);
 
 void					free_line(char **line);

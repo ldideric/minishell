@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/11 20:43:47 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/23 21:09:25 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ static t_cfunc		specifier(char *s)
 void				parser(char **line)
 {
 	t_cfunc func;
+	int i = 0;
 
+	while (line[i] != NULL)
+		ft_printf("%s$", line[i]);
 	func = specifier(ft_strmapi(line[0], &ft_mapi_low));
 	if (func != NULL)
 		func(line + 1);
@@ -50,7 +53,7 @@ int					main(void)
 	{
 		ft_printf(USER);
 		get_next_line(STDIN_FILENO, &line);
-		parser(ft_split(line, ' '));
+		parser(state(line));
 		free(line);
 	}
 	return (0);

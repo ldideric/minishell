@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/11 20:44:27 by ldideric      ########   odam.nl          #
+#    Updated: 2020/11/23 20:45:54 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,9 @@ CMD_SRC			=	ft_echo.c \
 
 UTIL_SRC		=	flags.c \
 					validate_file.c \
-					extra1.c
+					extra1.c \
+					state.c \
+					realloc_state.c
 
 LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)
 PRINTF_SRC_DIR	=	$(PRINTF_SRC:%=$(PRINTF_PATH)%)
