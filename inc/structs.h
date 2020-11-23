@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 20:26:43 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/23 20:02:55 by jmelis        ########   odam.nl         */
+/*   Updated: 2020/11/23 22:17:13 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,11 @@ typedef struct			s_res
 	int					x;
 	int					y;
 }						t_res;
+
+typedef struct			s_state
+{
+	char				c;
+	int					on;
+}						t_state;
 
 #endif
