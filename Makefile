@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/11 20:44:27 by ldideric      ########   odam.nl          #
+#    Updated: 2020/11/23 21:45:44 by jmelis        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +90,10 @@ GNL_SRC			=	get_next_line.c \
 
 CMD_SRC			=	ft_echo.c \
 					ft_exit.c \
-					ft_pwd.c
+					ft_pwd.c \
+					ft_env.c \
+					ft_export.c \
+					ft_unset.c
 
 UTIL_SRC		=	flags.c \
 					validate_file.c \

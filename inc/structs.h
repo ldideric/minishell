@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 20:26:43 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 20:27:46 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/23 20:02:55 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ typedef struct			s_sep
 typedef struct			s_data
 {
 	int					exitcode;
+	char				**env;
 }						t_data;
 
 typedef struct			s_res

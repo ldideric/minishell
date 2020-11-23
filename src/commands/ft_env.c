@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_exit.c                                          :+:    :+:            */
+/*   ft_env.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/09 18:21:36 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/23 18:48:59 by jmelis        ########   odam.nl         */
+/*   Created: 2020/11/23 19:10:48 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/11/23 21:56:16 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-void		ft_exit(char **line)
+void	ft_env(char **line)
 {
-	(void)line;
-	exit(0);
+	char **begin;
+
+	begin = g_data->env;
+	if (!1 && !line)
+		return ;
+	while (*g_data->env)
+	{
+		ft_printf("%s\n", *g_data->env);
+		g_data->env++;
+	}
+	g_data->env = begin;
 }

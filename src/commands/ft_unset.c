@@ -1,19 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_exit.c                                          :+:    :+:            */
+/*   ft_unset.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/09 18:21:36 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/23 18:48:59 by jmelis        ########   odam.nl         */
+/*   Created: 2020/11/23 21:43:19 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/11/23 21:52:59 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-void		ft_exit(char **line)
+void	ft_unset(char **line)
 {
-	(void)line;
-	exit(0);
+	while (*line)
+	{
+		unsetenv(*line);
+		line++;
+	}
 }
