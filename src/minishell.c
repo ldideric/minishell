@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/23 22:17:08 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/28 21:34:55 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ static t_cfunc		specifier(char *s)
 
 void				parser(char **line)
 {
-	t_cfunc func;
-	int i = 0;
+	t_cfunc	func;
+	int		i;
 
-	while (line[i] != NULL)
-		ft_printf("%s$", line[i]);
+	i = 0;
+	// while (line[i] != NULL)
+	// 	ft_printf("%s$", line[i]);
 	func = specifier(ft_strmapi(line[0], &ft_mapi_low));
 	if (func != NULL)
 		func(line + 1);
@@ -59,13 +60,14 @@ void				mini_init(void)
 	i = 0;
 	g_data = malloc(sizeof(t_data));
 	while (environ[i])
-	{
-		g_data->env = ft_realloc_arr(&g_data->env, &i);
-		g_data->env[i] = malloc(sizeof(char) * ft_strlen(environ[i] + 1));
-		ft_strlcpy(g_data->env[i], environ[i], ft_strlen(environ[i]) + 1);
 		i++;
+	g_data->env = ft_calloc(i + 1, sizeof(t_var *));
+	i--;
+	while (environ[i])
+	{
+		g_data->env[i] = read_var(environ[i]);
+		i--;
 	}
-	ft_realloc_arr(&g_data->env, &i);
 }
 
 int					main(void)
@@ -78,7 +80,7 @@ int					main(void)
 	{
 		ft_printf(USER);
 		get_next_line(STDIN_FILENO, &line);
-		parser(state(line));
+		parser(ft_split(line, ' '));
 		free(line);
 	}
 	return (0);

@@ -6,11 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-<<<<<<< HEAD
-/*   Updated: 2020/11/23 21:45:37 by jmelis        ########   odam.nl         */
-=======
-/*   Updated: 2020/11/23 20:57:11 by ldideric      ########   odam.nl         */
->>>>>>> 6c859502af13726084549156b6f18689dc54c747
+/*   Updated: 2020/11/28 21:33:03 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +46,10 @@ t_data					*g_data;
 
 typedef void			(*t_cfunc)(char **line);
 
+/*
+** Command Prototypes
+*/
+
 void					ft_echo(char **line);
 void					ft_exit(char **line);
 void					ft_pwd(char **line);
@@ -57,10 +57,18 @@ void					ft_env(char **line);
 void					ft_export(char **line);
 void					ft_unset(char **line);
 
+/*
+** Utils Prototypes
+*/
+
 char					**state(char *s);
 int						realloc_state(char **s, char c, int new);
 t_sep					seperate_flags(char **args, char **flags, char c);
-
+t_var					*read_var(char *s);
+void					new_env(char *value);
+char					*get_env(char *str);
 void					free_line(char **line);
+void					del_env(char *str);
+void					aborthandler(int signum);
 
 #endif

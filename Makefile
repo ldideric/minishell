@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/23 22:16:56 by ldideric      ########   odam.nl          #
+#    Updated: 2020/11/28 21:25:28 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -99,7 +99,10 @@ UTIL_SRC		=	flags.c \
 					validate_file.c \
 					extra1.c \
 					state.c \
-					realloc_state.c
+					realloc_state.c \
+					read_var.c \
+					env_functions.c \
+					aborthandler.c
 
 LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)
 PRINTF_SRC_DIR	=	$(PRINTF_SRC:%=$(PRINTF_PATH)%)

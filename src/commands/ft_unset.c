@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_unset.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/23 21:43:19 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/23 21:52:59 by jmelis        ########   odam.nl         */
+/*   Updated: 2020/11/28 21:12:31 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 void	ft_unset(char **line)
 {
+	if (!*line)
+	{
+		ft_printf("error\n");
+		return ;
+	}
 	while (*line)
 	{
-		unsetenv(*line);
+		del_env(*line);
 		line++;
 	}
 }

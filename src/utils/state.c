@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/23 18:12:09 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/23 22:04:15 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/28 18:17:14 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,20 @@ char		**state_loop(char ***arr, char *s, t_state st, int i)
 	{
 		if (s[i] == '\'' || s[i] == '\"')
 			state_switch(s[i], st);
-		else if (st.on == 1 && realloc_state(arr, s[i], 0) == 0)
+		else if (st.on == 1 && realloc_state(*arr, s[i], 0) == 0)
 			return (NULL);
 		else if (!ft_isprint(s[i]) || s[i] == ' ')
 		{
 			while (!ft_isprint(s[i]) || s[i] == ' ')
 				i++;
-			if (realloc_state(arr, s[i], 1) == 0)
+			if (realloc_state(*arr, s[i], 1) == 0)
 				return (NULL);
 		}
-		else if (realloc_state(arr, s[i], 0) == 0)
+		else if (realloc_state(*arr, s[i], 0) == 0)
 			return (NULL);
 		i++;
 	}
-	return (arr);
+	return (*arr);
 }
 
 char		**state(char *s)
