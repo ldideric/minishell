@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 17:09:32 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/09 21:07:08 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/14 18:33:31 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,15 @@ void	ft_echo(char **line)
 	arg = seperate_flags(line, flags, '*');
 	while (**arg.flags)
 	{
-		if (ft_strncmp(*arg.flags, "-n", INT_MAX))
+		if (!ft_strncmp(*arg.flags, "-n", INT_MAX))
 			c = 0;
 		arg.flags++;
 	}
 	while (**arg.args)
 	{
 		ft_printf("%s", *arg.args);
+		if (**(arg.args + 1))
+			ft_printf(" ");
 		arg.args++;
 	}
 	if (c)

@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unset.c                                         :+:    :+:            */
+/*   ft_ischarint.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: root <root@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/23 21:43:19 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/30 19:29:00 by ldideric      ########   odam.nl         */
+/*   Created: 2020/11/14 19:29:29 by root          #+#    #+#                 */
+/*   Updated: 2020/11/14 19:41:31 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minishell.h>
+#include <libft.h>
 
-void	ft_unset(char **line)
+int	ft_ischarint(char *str, char c)
 {
-	if (!*line)
-	{
-		ft_printf("error\n");
-		return ;
-	}
-	while (*line)
-	{
-		del_env(*line);
-		line++;
-	}
+	int i;
+
+	i = 0;
+	if (str == NULL)
+		return (0);
+	while ((str[i] >= '0' && str[i] <= '9') || str[i] == c || str[i] == ' ')
+		i++;
+	if (str[i] == '\0')
+		return (1);
+	return (0);
 }

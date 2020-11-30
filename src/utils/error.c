@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   extra1.c                                           :+:    :+:            */
+/*   error.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/11 20:42:56 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/11 20:44:15 by ldideric      ########   odam.nl         */
+/*   Created: 2020/11/14 18:05:16 by root          #+#    #+#                 */
+/*   Updated: 2020/11/30 19:37:03 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-void			free_line(char **line)
+void	ft_error(char *message, char *var)
 {
-	int i;
-
-	i = 0;
-	while (line[i] != NULL)
-	{
-		free(line[i]);
-		i++;
-	}
-	free(line);
+	ft_printf("msh: ");
+	if (var != NULL)
+		ft_printf(message, var);
+	else 
+		ft_printf(message);
+	ft_printf("\n");
 }

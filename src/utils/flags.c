@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 17:29:53 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/30 19:22:39 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/30 19:39:40 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int			check_flags(char *arg, char **flags)
 {
 	while (*flags)
 	{
-		if (ft_strncmp(arg, *flags, INT_MAX))
+		if (!ft_strncmp(arg, *flags, INT_MAX))
 			return (1);
 		flags++;
 	}
@@ -32,8 +32,8 @@ void		norm(char **args, t_sep *ret, int *y)
 
 void		null_character(t_sep *ret, t_res xy)
 {
-	ft_realloc_arr(&ret->flags, &xy.x);
-	ft_realloc_arr(&ret->args, &xy.y);
+	ret->flags = ft_realloc_arr(&ret->flags, &xy.x);
+	ret->args = ft_realloc_arr(&ret->args, &xy.y);
 	ret->flags[xy.x] = malloc(sizeof(char));
 	ret->flags[xy.x][0] = '\0';
 	ret->args[xy.y] = malloc(sizeof(char));
@@ -42,9 +42,10 @@ void		null_character(t_sep *ret, t_res xy)
 
 t_sep		seperate_flags(char **args, char **flags, char c)
 {
-	t_sep	ret;
+	t_sep	*ret;
 	t_res	xy;
 
+	ret = malloc(sizeof(ret));
 	xy = (t_res){0, 0};
 	while (*args)
 	{
@@ -54,15 +55,17 @@ t_sep		seperate_flags(char **args, char **flags, char c)
 				ft_printf("error");
 			if (check_flags(*args, flags))
 			{
-				ft_realloc_arr(&ret.flags, &xy.x);
-				ret.flags[xy.x] = *args;
+				ret->flags = ft_realloc_arr(&ret->flags, &xy.x);
+				ret->flags[xy.x] = *args;
 				xy.x++;
 			}
+			else
+				norm(args, ret, &xy.y);
 		}
 		else
-			norm(args, &ret, &xy.y);
+			norm(args, ret, &xy.y);
 		args++;
 	}
-	null_character(&ret, xy);
-	return (ret);
+	null_character(ret, xy);
+	return (*ret);
 }

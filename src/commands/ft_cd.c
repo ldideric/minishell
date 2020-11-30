@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_env.c                                           :+:    :+:            */
+/*   ft_cd.c                                            :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/23 19:10:48 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/30 19:24:34 by ldideric      ########   odam.nl         */
+/*   Created: 2020/11/14 18:00:36 by root          #+#    #+#                 */
+/*   Updated: 2020/11/30 19:35:40 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-void	ft_env(char **line)
+void	ft_cd(char **line)
 {
-	t_var	**begin;
 	int		i;
-	t_data	*data;
+	char	*tmp;
 
 	(void)line;
 	data = g_data;
@@ -24,8 +23,15 @@ void	ft_env(char **line)
 	begin = g_data->env;
 	while (*g_data->env)
 	{
-		ft_printf("%s=%s\n", g_data->env[0]->name, g_data->env[0]->value);
-		g_data->env++;
+		free(*line);
+		*line = g_data.prevdir;
+		ft_printf("%s\n", *line);
 	}
-	g_data->env = begin;
+	tmp = g_data.prevdir;
+	g_data.prevdir = getcwd(NULL, 0);
+	if (chdir(*line) != 0)
+	{
+		ft_error("cd: %s: No such file or directory", *line);
+		g_data.prevdir = tmp;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 20:58:15 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/09 21:16:57 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/15 15:16:47 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,4 @@ char		**ft_split(char *s, char c)
 		
 		i++;
 	}
-	
 }
