@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_unset.c                                         :+:    :+:            */
+/*   error.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: root <root@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/23 21:43:19 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/28 21:12:31 by ldideric      ########   odam.nl         */
+/*   Created: 2020/11/14 18:05:16 by root          #+#    #+#                 */
+/*   Updated: 2020/11/14 18:29:02 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-void	ft_unset(char **line)
+void	ft_error(char *message, char *var)
 {
-	if (!*line)
-	{
-		ft_printf("error\n");
-		return ;
-	}
-	while (*line)
-	{
-		del_env(*line);
-		line++;
-	}
+	ft_printf("msh: ");
+	if (var != NULL)
+		ft_printf(message, var);
+	else 
+		ft_printf(message);
+	ft_printf("\n");
 }

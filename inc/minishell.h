@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/28 21:33:03 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/14 18:34:03 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 ** Globals
 */
 
-t_data					*g_data;
+t_data					g_data;
 
 /*
 ** Function prototypes
@@ -46,29 +46,13 @@ t_data					*g_data;
 
 typedef void			(*t_cfunc)(char **line);
 
-/*
-** Command Prototypes
-*/
-
 void					ft_echo(char **line);
 void					ft_exit(char **line);
 void					ft_pwd(char **line);
-void					ft_env(char **line);
-void					ft_export(char **line);
-void					ft_unset(char **line);
 
-/*
-** Utils Prototypes
-*/
-
-char					**state(char *s);
-int						realloc_state(char **s, char c, int new);
+char					**ft_strsplit(char const *s, char c);
 t_sep					seperate_flags(char **args, char **flags, char c);
-t_var					*read_var(char *s);
-void					new_env(char *value);
-char					*get_env(char *str);
-void					free_line(char **line);
-void					del_env(char *str);
-void					aborthandler(int signum);
+void					ft_error(char *message, char *var);
+void					ft_cd(char **line);
 
 #endif

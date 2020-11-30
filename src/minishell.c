@@ -6,81 +6,60 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/28 21:34:55 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/15 15:17:53 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
-#include <stdio.h>
 
 static t_cfunc		specifier(char *s)
 {
 	t_cfunc					ret;
-	static const t_cfunc	func[6] = {
+	static const t_cfunc	func[4] = {
 		[0] = &ft_exit,
 		[1] = &ft_echo,
 		[2] = &ft_pwd,
-		[3] = &ft_env,
-		[4] = &ft_export,
-		[5] = &ft_unset,
+		[3] = &ft_cd,
 	};
 
 	ret = NULL;
 	ret = (ft_strncmp(s, "exit", INT_MAX) == 0) ? func[0] : ret;
 	ret = (ft_strncmp(s, "echo", INT_MAX) == 0) ? func[1] : ret;
 	ret = (ft_strncmp(s, "pwd", INT_MAX) == 0) ? func[2] : ret;
-	ret = (ft_strncmp(s, "env", INT_MAX) == 0) ? func[3] : ret;
-	ret = (ft_strncmp(s, "export", INT_MAX) == 0) ? func[4] : ret;
-	ret = (ft_strncmp(s, "unset", INT_MAX) == 0) ? func[5] : ret;
+	ret = (ft_strncmp(s, "cd", INT_MAX) == 0) ? func[3] : ret;
 	free(s);
 	return (ret);
 }
 
 void				parser(char **line)
 {
-	t_cfunc	func;
-	int		i;
+	t_cfunc func;
 
-	i = 0;
-	// while (line[i] != NULL)
-	// 	ft_printf("%s$", line[i]);
 	func = specifier(ft_strmapi(line[0], &ft_mapi_low));
-	if (func != NULL)
-		func(line + 1);
-	else
-		ft_printf("msh: command not found: %s\n", line[0]);
-	free_line(line);
-}
-
-void				mini_init(void)
-{
-	extern char	**environ;
-	int			i;
-
-	i = 0;
-	g_data = malloc(sizeof(t_data));
-	while (environ[i])
-		i++;
-	g_data->env = ft_calloc(i + 1, sizeof(t_var *));
-	i--;
-	while (environ[i])
+	if (func == NULL)
 	{
-		g_data->env[i] = read_var(environ[i]);
-		i--;
+		ft_error("command not found: %s", line[0]);
+		return ;
 	}
+	func(line + 1);
 }
 
 int					main(void)
 {
-	char		*line;
+	char	*line;
+	char	**commands;
 
-	mini_init();
 	ft_printf(CLEAR);
 	while (1)
 	{
 		ft_printf(USER);
 		get_next_line(STDIN_FILENO, &line);
-		parser(ft_split(line, ' '));
+		commands = ft_split(line, ';');
+		while (*commands)
+		{
+			parser(ft_split(*commands, ' '));
+			commands++;
+		}
 		free(line);
 	}
 	return (0);

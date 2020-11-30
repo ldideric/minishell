@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 17:45:28 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/28 19:27:37 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/14 17:28:16 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ char	**ft_realloc_arr(char ***str, int *size)
 	i = 0;
 	if (*size == 0)
 	{
-		d = malloc(1 * sizeof(char *));
+		d = ft_calloc(1, sizeof(char *));
 		if (d == NULL)
 			ft_printf("error");
 		return (d);
 	}
-	d = malloc((*size + 1) * sizeof(char *));
+	d = ft_calloc((*size + 1), sizeof(char *));
 	if (d == NULL)
 		ft_printf("error");
 	while (i < *size)

@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/28 21:25:28 by ldideric      ########   odam.nl          #
+#    Updated: 2020/11/14 19:37:46 by root          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ LIBFT_SRC		=	ft_memset.c \
 					ft_strlen.c \
 					ft_isalpha.c \
 					ft_isdigit.c \
+					ft_ischarint.c \
 					ft_isalnum.c \
 					ft_isascii.c \
 					ft_isprint.c \
@@ -91,18 +92,11 @@ GNL_SRC			=	get_next_line.c \
 CMD_SRC			=	ft_echo.c \
 					ft_exit.c \
 					ft_pwd.c \
-					ft_env.c \
-					ft_export.c \
-					ft_unset.c
+					ft_cd.c
 
 UTIL_SRC		=	flags.c \
 					validate_file.c \
-					extra1.c \
-					state.c \
-					realloc_state.c \
-					read_var.c \
-					env_functions.c \
-					aborthandler.c
+					error.c
 
 LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)
 PRINTF_SRC_DIR	=	$(PRINTF_SRC:%=$(PRINTF_PATH)%)
@@ -124,7 +118,7 @@ C_FILES			=	./$(SRC_PATH)/minishell.c \
 					$(UTIL_SRC_DIR)
 O_FILES			=	$(C_FILES:.c=.o)
 
-W_FLAGS			=	-Wall -Werror -Wextra
+W_FLAGS			=	#-Wall -Werror -Wextra
 LIB_FLAGS		=	-Iinc
 FLAGS			=	$(W_FLAGS) $(LIB_FLAGS)
 
