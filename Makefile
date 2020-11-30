@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/30 20:07:56 by ldideric      ########   odam.nl          #
+#    Updated: 2020/11/30 20:34:01 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,7 +94,8 @@ CMD_SRC			=	ft_echo.c \
 					ft_pwd.c \
 					ft_env.c \
 					ft_export.c \
-					ft_unset.c
+					ft_unset.c \
+					ft_cd.c
 
 UTIL_SRC		=	flags.c \
 					validate_file.c \

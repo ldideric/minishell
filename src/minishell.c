@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/30 20:09:17 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/30 20:33:08 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 static t_cfunc		specifier(char *s)
 {
 	t_cfunc					ret;
-	static const t_cfunc	func[6] = {
+	static const t_cfunc	func[7] = {
 		[0] = &ft_exit,
 		[1] = &ft_echo,
 		[2] = &ft_pwd,
 		[3] = &ft_env,
 		[4] = &ft_export,
 		[5] = &ft_unset,
+		[6] = &ft_cd,
 	};
 
 	ret = NULL;
@@ -31,6 +32,7 @@ static t_cfunc		specifier(char *s)
 	ret = (ft_strncmp(s, "env", INT_MAX) == 0) ? func[3] : ret;
 	ret = (ft_strncmp(s, "export", INT_MAX) == 0) ? func[4] : ret;
 	ret = (ft_strncmp(s, "unset", INT_MAX) == 0) ? func[5] : ret;
+	ret = (ft_strncmp(s, "cd", INT_MAX) == 0) ? func[6] : ret;
 	free(s);
 	return (ret);
 }
