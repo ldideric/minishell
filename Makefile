@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/14 19:37:46 by root          ########   odam.nl          #
+#    Updated: 2020/11/30 20:07:56 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,10 +92,18 @@ GNL_SRC			=	get_next_line.c \
 CMD_SRC			=	ft_echo.c \
 					ft_exit.c \
 					ft_pwd.c \
-					ft_cd.c
+					ft_env.c \
+					ft_export.c \
+					ft_unset.c
 
 UTIL_SRC		=	flags.c \
 					validate_file.c \
+					extra1.c \
+					state.c \
+					realloc_state.c \
+					read_var.c \
+					env_functions.c \
+					aborthandler.c \
 					error.c
 
 LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)

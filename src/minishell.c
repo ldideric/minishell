@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/15 15:17:53 by root          ########   odam.nl         */
+/*   Updated: 2020/11/30 20:09:17 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 static t_cfunc		specifier(char *s)
 {
 	t_cfunc					ret;
-	static const t_cfunc	func[4] = {
+	static const t_cfunc	func[6] = {
 		[0] = &ft_exit,
 		[1] = &ft_echo,
 		[2] = &ft_pwd,
-		[3] = &ft_cd,
+		[3] = &ft_env,
+		[4] = &ft_export,
+		[5] = &ft_unset,
 	};
 
 	ret = NULL;
 	ret = (ft_strncmp(s, "exit", INT_MAX) == 0) ? func[0] : ret;
 	ret = (ft_strncmp(s, "echo", INT_MAX) == 0) ? func[1] : ret;
 	ret = (ft_strncmp(s, "pwd", INT_MAX) == 0) ? func[2] : ret;
-	ret = (ft_strncmp(s, "cd", INT_MAX) == 0) ? func[3] : ret;
+	ret = (ft_strncmp(s, "env", INT_MAX) == 0) ? func[3] : ret;
+	ret = (ft_strncmp(s, "export", INT_MAX) == 0) ? func[4] : ret;
+	ret = (ft_strncmp(s, "unset", INT_MAX) == 0) ? func[5] : ret;
 	free(s);
 	return (ret);
 }
@@ -44,11 +48,30 @@ void				parser(char **line)
 	func(line + 1);
 }
 
+void				mini_init(void)
+{
+	extern char	**environ;
+	int			i;
+
+	i = 0;
+	g_data = malloc(sizeof(t_data));
+	while (environ[i])
+		i++;
+	g_data->env = ft_calloc(i + 1, sizeof(t_var *));
+	i--;
+	while (environ[i])
+	{
+		g_data->env[i] = read_var(environ[i]);
+		i--;
+	}
+}
+
 int					main(void)
 {
 	char	*line;
 	char	**commands;
 
+	mini_init();
 	ft_printf(CLEAR);
 	while (1)
 	{
