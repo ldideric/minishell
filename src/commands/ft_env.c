@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/23 19:10:48 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/28 20:08:13 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/30 19:24:34 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,10 @@ void	ft_env(char **line)
 	int		i;
 	t_data	*data;
 
+	(void)line;
 	data = g_data;
 	i = 0;
 	begin = g_data->env;
-	if (!1 && !line)
-		return ;
 	while (*g_data->env)
 	{
 		ft_printf("%s=%s\n", g_data->env[0]->name, g_data->env[0]->value);

@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/28 20:34:29 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/28 21:27:12 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/11/30 19:27:51 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,7 @@ char	*get_env(char *str)
 	while (g_data->env[i])
 	{
 		if (ft_strncmp(g_data->env[i]->name, str, INT_MAX) == 0)
-		{
 			return (g_data->env[i]->value);
-		}
 		i++;
 	}
 	return ("");
