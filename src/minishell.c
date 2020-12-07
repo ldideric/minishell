@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/30 20:33:08 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/07 16:32:15 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void				mini_init(void)
 
 	i = 0;
 	g_data = malloc(sizeof(t_data));
+	g_data->prevdir = NULL;
 	while (environ[i])
 		i++;
 	g_data->env = ft_calloc(i + 1, sizeof(t_var *));

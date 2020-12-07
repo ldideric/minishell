@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_ischarint.c                                     :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: root <root@student.codam.nl>                 +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/14 19:29:29 by root          #+#    #+#                 */
-/*   Updated: 2020/11/14 19:41:31 by root          ########   odam.nl         */
+/*   Updated: 2020/12/07 16:51:55 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
