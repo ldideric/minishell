@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/30 20:33:08 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/07 16:14:12 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int					main(void)
 		commands = ft_split(line, ';');
 		while (*commands)
 		{
-			parser(ft_split(*commands, ' '));
+			parser(state(*commands));
 			commands++;
 		}
 		free(line);
