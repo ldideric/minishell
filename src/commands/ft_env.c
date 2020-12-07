@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/23 19:10:48 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/28 20:08:13 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/07 17:29:34 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 
 void	ft_env(char **line)
 {
-	t_var	**begin;
-	int		i;
-	t_data	*data;
+	int			i;
+	t_var		**env;
 
-	data = g_data;
+	env = get_var_arr();
 	i = 0;
-	begin = g_data->env;
-	if (!1 && !line)
-		return ;
-	while (*g_data->env)
+	(void)line;
+	while (env[i])
 	{
-		ft_printf("%s=%s\n", g_data->env[0]->name, g_data->env[0]->value);
-		g_data->env++;
+		ft_printf("%s=%s\n", env[i]->name, env[i]->value);
+		i++;
 	}
-	g_data->env = begin;
 }

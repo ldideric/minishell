@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/31 13:47:21 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/14 19:33:27 by root          ########   odam.nl         */
+/*   Updated: 2020/12/07 20:42:05 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define LIBFT_H
 
 # include <stdlib.h>
+# include <get_next_line.h>
+# include <ft_printf.h>
+# include <limits.h>
+# include <fcntl.h>
 
 typedef struct		s_list
 {
@@ -77,5 +81,7 @@ char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_skipchar(char *s, char c);
 char				**ft_realloc_arr(char ***ptr, int *i);
 char				ft_mapi_low(unsigned int a, char c);
+void				ft_error(int code, char *arg);
+int					ft_validate_file(char *file_path, char *error, ...);
 
 #endif

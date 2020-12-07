@@ -6,7 +6,7 @@
 #    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/11/30 20:34:01 by ldideric      ########   odam.nl          #
+#    Updated: 2020/12/07 20:43:44 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,9 @@ LIBFT_SRC		=	ft_memset.c \
 					ft_strstr.c \
 					ft_skipchar.c \
 					ft_realloc_arr.c \
-					ft_mapi_low.c
+					ft_mapi_low.c \
+					ft_error.c \
+					ft_validate_file.c
 
 PRINTF_SRC		=	ft_printf.c \
 					ft_printf_bonus.c \
@@ -98,11 +100,11 @@ CMD_SRC			=	ft_echo.c \
 					ft_cd.c
 
 UTIL_SRC		=	flags.c \
-					validate_file.c \
 					extra1.c \
 					state.c \
 					realloc_state.c \
-					read_var.c \
+					env_utils.c \
+					env_utils2.c \
 					env_functions.c \
 					aborthandler.c \
 					error.c

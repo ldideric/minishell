@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   validate_file.c                                    :+:    :+:            */
+/*   ft_validate_file.c                                 :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 17:37:49 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/09 19:03:14 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/06 17:33:27 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minishell.h>
+#include <libft.h>
 
 int		compare(char *file_path, va_list *ap, char *s)
 {
@@ -54,10 +54,10 @@ int		ft_validate_file(char *file_path, char *error, ...)
 		file_path++;
 	file_path--;
 	if (check_extentions(file_path, &ap) == 0)
-		ft_printf("error");
+		ft_error(-1, error);
 	ret = open(path, O_RDONLY);
 	if (ret < 0)
-		ft_printf("error");
+		ft_error(-2, path);
 	va_end(ap);
 	return (ret);
 }
