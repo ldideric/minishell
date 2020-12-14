@@ -6,7 +6,7 @@
 #    By: jmelis <jmelis@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/12/07 21:45:32 by jmelis        ########   odam.nl          #
+#    Updated: 2020/12/14 16:50:11 by jmelis        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,8 @@ CMD_SRC			=	ft_echo.c \
 					ft_env.c \
 					ft_export.c \
 					ft_unset.c \
-					ft_cd.c
+					ft_cd.c \
+					ft_clear.c
 
 UTIL_SRC		=	flags.c \
 					extra1.c \

@@ -6,7 +6,7 @@
 /*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/07 22:38:31 by jmelis        ########   odam.nl         */
+/*   Updated: 2020/12/14 16:49:48 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,20 @@ t_data					*g_data;
 ** Function prototypes
 */
 
-typedef void			(*t_cfunc)(char **line);
+typedef int				(*t_cfunc)(char **line);
 
 /*
 ** Command Prototypes
 */
 
-void					ft_echo(char **line);
-void					ft_exit(char **line);
-void					ft_pwd(char **line);
-void					ft_env(char **line);
-void					ft_export(char **line);
-void					ft_unset(char **line);
-void					ft_cd(char **line);
+int						ft_echo(char **line);
+int						ft_exit(char **line);
+int						ft_pwd(char **line);
+int						ft_env(char **line);
+int						ft_export(char **line);
+int						ft_unset(char **line);
+int						ft_cd(char **line);
+int						ft_clear(char **line);
 
 /*
 ** Utils Prototypes

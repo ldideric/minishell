@@ -1,20 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_pwd.c                                           :+:    :+:            */
+/*   ft_cls.c                                           :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/09 18:43:55 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/14 16:30:41 by jmelis        ########   odam.nl         */
+/*   Created: 2020/12/14 16:47:31 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/12/14 16:49:38 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-int	ft_pwd(char **line)
+int		ft_clear(char **line)
 {
-	(void)line;
-	ft_printf("%s\n", getcwd(NULL, 0));
+	ft_printf(CLEAR);
 	return (0);
 }

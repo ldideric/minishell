@@ -6,7 +6,7 @@
 /*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/07 22:40:08 by jmelis        ########   odam.nl         */
+/*   Updated: 2020/12/14 17:10:46 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static t_cfunc		specifier(char *s)
 {
 	t_cfunc					ret;
-	static const t_cfunc	func[7] = {
+	static const t_cfunc	func[8] = {
 		[0] = &ft_exit,
 		[1] = &ft_echo,
 		[2] = &ft_pwd,
@@ -23,6 +23,7 @@ static t_cfunc		specifier(char *s)
 		[4] = &ft_export,
 		[5] = &ft_unset,
 		[6] = &ft_cd,
+		[7] = &ft_clear,
 	};
 
 	ret = NULL;
@@ -33,26 +34,27 @@ static t_cfunc		specifier(char *s)
 	ret = (ft_strncmp(s, "export", INT_MAX) == 0) ? func[4] : ret;
 	ret = (ft_strncmp(s, "unset", INT_MAX) == 0) ? func[5] : ret;
 	ret = (ft_strncmp(s, "cd", INT_MAX) == 0) ? func[6] : ret;
+	ret = (ft_strncmp(s, "clear", INT_MAX) == 0) ? func[7] : ret;
 	free(s);
 	return (ret);
 }
 
-void				parser(char **line)
+int				parser(char **line)
 {
 	t_cfunc func;
 
 	if (is_path(line[0]))
 	{
 		ft_exec(line);
-		return ;
+		return (127);
 	}
 	func = specifier(ft_strmapi(line[0], &ft_mapi_low));
 	if (func == NULL)
 	{
 		ms_error("command not found: %s", line[0]);
-		return ;
+		return (127);
 	}
-	func(line + 1);
+	return (func(line + 1));
 }
 
 void				mini_init(void)
@@ -66,20 +68,21 @@ void				mini_init(void)
 
 int					main(void)
 {
-	char	*line;
-	char	**commands;
+	char			*line;
+	char			**commands;
+	unsigned char	ret;
 
+	ret = 0;
 	mini_init();
 	ft_printf(CLEAR);
-	ft_printf("[ ] ");
 	while (1)
 	{
-		ft_printf(USER);
+		ft_printf("%-5d%s", ret, USER);
 		get_next_line(STDIN_FILENO, &line);
 		commands = ft_split(line, ';');
 		while (*commands)
 		{
-			parser(ft_split(*commands, ' '));
+			ret = parser(ft_split(*commands, ' '));
 			commands++;
 		}
 		free(line);

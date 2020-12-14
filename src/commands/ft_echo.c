@@ -6,7 +6,7 @@
 /*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/07 21:34:41 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/12/07 21:34:42 by jmelis        ########   odam.nl         */
+/*   Updated: 2020/12/14 16:30:02 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	**get_flags(void)
 	return (flags);
 }
 
-void	ft_echo(char **line)
+int		ft_echo(char **line)
 {
 	t_sep	arg;
 	char	**flags;
@@ -46,4 +46,5 @@ void	ft_echo(char **line)
 	}
 	if (c)
 		ft_printf("%c", c);
+	return (0);
 }

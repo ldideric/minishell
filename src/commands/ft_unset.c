@@ -6,22 +6,23 @@
 /*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/23 21:43:19 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/12/07 21:35:37 by jmelis        ########   odam.nl         */
+/*   Updated: 2020/12/14 16:31:55 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-void	ft_unset(char **line)
+int	ft_unset(char **line)
 {
 	if (!*line)
 	{
-		ft_printf("error\n");
-		return ;
+		ms_error("unset: not enough arguments", NULL);
+		return (1);
 	}
 	while (*line)
 	{
 		del_env(*line);
 		line++;
 	}
+	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   structs.h                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 20:26:43 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/07 18:17:42 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/14 17:03:35 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct			s_data
 {
 	int					exitcode;
 	char				*prevdir;
+	int					fd[2];
 }						t_data;
 
 typedef struct			s_res
