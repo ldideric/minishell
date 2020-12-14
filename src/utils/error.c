@@ -3,16 +3,16 @@
 /*                                                        ::::::::            */
 /*   error.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/14 18:05:16 by root          #+#    #+#                 */
-/*   Updated: 2020/12/07 16:52:34 by ldideric      ########   odam.nl         */
+/*   Created: 2020/12/07 21:32:37 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/12/07 21:32:39 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-void	ft_error(char *message, char *var)
+void	ms_error(char *message, char *var)
 {
 	ft_printf("msh: ");
 	if (var != NULL)

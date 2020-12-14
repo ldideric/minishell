@@ -1,18 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   aborthandler.c                                     :+:    :+:            */
+/*   is_path.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/07 21:33:26 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/12/07 21:33:29 by jmelis        ########   odam.nl         */
+/*   Created: 2020/12/07 21:34:06 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/12/07 21:50:47 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minishell.h>
-
-void	aborthandler(int signum)
+int		is_path(char *str)
 {
-	ft_printf("%d\n", signum);
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] == '/')
+			return (1);
+		i++;
+	}
+	return (0);
 }

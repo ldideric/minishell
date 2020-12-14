@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_export.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/23 19:21:52 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/30 19:25:24 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/07 21:35:05 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

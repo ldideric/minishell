@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   aborthandler.c                                     :+:    :+:            */
+/*   ft_exec.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/12/07 21:33:26 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/12/07 21:33:29 by jmelis        ########   odam.nl         */
+/*   Created: 2020/12/07 21:33:54 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/12/07 22:36:34 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <minishell.h>
 
-void	aborthandler(int signum)
+void	ft_exec(char **line)
 {
-	ft_printf("%d\n", signum);
+	extern char **environ;
+	int			status;
+	int			ret;
+
+	ret = fork();
+	if (ret == 0)
+	{
+		if (execve(line[0], line + 1, environ) < 0)
+		ms_error("zsh: no such file or directory: %s", line[0]);
+	}
+	else if (ret > 0)
+	{
+		wait(&status);
+		if (status >= 0)
+			ft_printf("[%d] ", status / 256);
+	}
+	else
+		ft_error(7, "");
 }

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_cd.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/14 18:00:36 by root          #+#    #+#                 */
-/*   Updated: 2020/12/07 16:51:31 by ldideric      ########   odam.nl         */
+/*   Created: 2020/12/07 21:34:34 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/12/07 21:34:35 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_chdir(char **line, char **dir, char *tmp)
 {
 	if (chdir(*line) != 0)
-		ft_error("cd: %s: No such file or directory", *line);
+		ms_error("cd: %s: No such file or directory", *line);
 	else
 	{
 		*dir = ft_strjoin("PWD=", getcwd(NULL, 0));
@@ -41,7 +41,7 @@ void	ft_cd(char **line)
 	{
 		if (ft_strncmp("", old, INT_MAX) == 0)
 		{
-			ft_error("cd: OLDPWD not set", NULL);
+			ms_error("cd: OLDPWD not set", NULL);
 			return ;
 		}
 		free(line[0]);

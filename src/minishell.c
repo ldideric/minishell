@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/07 16:55:11 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/14 17:03:16 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,15 @@ void				parser(char **line)
 {
 	t_cfunc func;
 
+	if (is_path(line[0]))
+	{
+		ft_exec(line);
+		return ;
+	}
 	func = specifier(ft_strmapi(line[0], &ft_mapi_low));
 	if (func == NULL)
 	{
-		ft_error("command not found: %s", line[0]);
+		ms_error("command not found: %s", line[0]);
 		return ;
 	}
 	func(line + 1);
@@ -52,21 +57,11 @@ void				parser(char **line)
 
 void				mini_init(void)
 {
-	extern char	**environ;
 	int			i;
 
 	i = 0;
 	g_data = malloc(sizeof(t_data));
-	g_data->prevdir = NULL;
-	while (environ[i])
-		i++;
-	g_data->env = ft_calloc(i + 1, sizeof(t_var *));
-	i--;
-	while (environ[i])
-	{
-		g_data->env[i] = read_var(environ[i]);
-		i--;
-	}
+	del_env("OLDPWD");
 }
 
 int					main(void)
@@ -76,6 +71,7 @@ int					main(void)
 
 	mini_init();
 	ft_printf(CLEAR);
+	ft_printf("[ ] ");
 	while (1)
 	{
 		ft_printf(USER);

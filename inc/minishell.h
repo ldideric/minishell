@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   minishell.h                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/30 20:08:41 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/07 22:38:31 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,8 @@
 */
 
 # include <unistd.h>
-# include <fcntl.h>
 
 # include <libft.h>
-# include <ft_printf.h>
-# include <get_next_line.h>
-# include <limits.h>
 
 # include <structs.h>
 
@@ -64,15 +60,27 @@ void					ft_cd(char **line);
 
 
 char					**ft_strsplit(char const *s, char c);
-void					ft_error(char *message, char *var);
+void					ms_error(char *message, char *var);
 char					**state(char *s);
 int						realloc_state(char **s, char c, int new);
 t_sep					seperate_flags(char **args, char **flags, char c);
+void					free_line(char **line);
+void					ft_exec(char **line);
+int						is_path(char *str);
+
+/*
+** Env Util Functions
+ */
+
 t_var					*read_var(char *s);
 void					new_env(char *value);
 char					*get_env(char *str);
-void					free_line(char **line);
 void					del_env(char *str);
-void					aborthandler(int signum);
+t_var					**get_var_arr();
+int						var_len(t_var **arr);
+char					**env_to_charray(t_var **env);
+char					*env_to_char(t_var *env);
+void					update_environ(t_var **env);
+t_var					**add_var(t_var **env, t_var *value);
 
 #endif

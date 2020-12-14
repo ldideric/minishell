@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   env_functions.c                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/28 20:34:29 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/30 19:27:51 by ldideric      ########   odam.nl         */
+/*   Created: 2020/12/07 21:33:10 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/12/07 21:33:12 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,30 @@
 
 void	new_env(char *value)
 {
-	t_var	**new;
-	int		i;
-	t_var	*newv;
+	t_var	**env;
+	t_var	**newenv;
+	t_var	*newvar;
 
-	newv = read_var(value);
-	i = 0;
-	while (g_data->env[i])
-		i++;
-	new = ft_calloc(sizeof(t_var *), i + 2);
-	i = 0;
-	while (g_data->env[i])
-	{
-		if (ft_strncmp(g_data->env[i]->name, newv->name, INT_MAX) == 0)
-		{
-			new[i] = newv;
-			value = NULL;
-			i++;
-			continue ;
-		}
-		new[i] = g_data->env[i];
-		i++;
-	}
-	if (value)
-		new[i] = newv;
-	g_data->env = new;
+	newvar = read_var(value);
+	if (newvar == NULL)
+		return ;
+	env = get_var_arr();
+	newenv = ft_calloc(sizeof(t_var *), var_len(env) + 2);
+	newenv = add_var(env, newvar);
+	update_environ(newenv);
 }
 
 char	*get_env(char *str)
 {
-	int i;
+	int			i;
+	t_var		**env;
 
+	env = get_var_arr();
 	i = 0;
-	while (g_data->env[i])
+	while (env[i])
 	{
-		if (ft_strncmp(g_data->env[i]->name, str, INT_MAX) == 0)
-			return (g_data->env[i]->value);
+		if (ft_strncmp(env[i]->name, str, INT_MAX) == 0)
+			return (env[i]->value);
 		i++;
 	}
 	return ("");
@@ -57,24 +45,23 @@ char	*get_env(char *str)
 
 void	del_env(char *str)
 {
-	t_var	**new;
+	t_var	**newenv;
+	t_var	**oldenv;
 	int		i;
 	int		j;
 
-	i = 0;
+	oldenv = get_var_arr();
 	j = 0;
-	while (g_data->env[i])
-		i++;
-	new = ft_calloc(sizeof(t_var *), i + 1);
 	i = 0;
-	while (g_data->env[i])
+	newenv = ft_calloc(sizeof(t_var *), var_len(oldenv) + 1);
+	while (oldenv[i])
 	{
-		if (ft_strncmp(g_data->env[i]->name, str, INT_MAX) != 0)
+		if (ft_strncmp(oldenv[i]->name, str, INT_MAX) != 0)
 		{
-			new[j] = g_data->env[i];
+			newenv[j] = oldenv[i];
 			j++;
 		}
 		i++;
 	}
-	g_data->env = new;
+	update_environ(newenv);
 }
