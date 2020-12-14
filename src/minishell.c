@@ -6,7 +6,7 @@
 /*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/14 17:10:46 by jmelis        ########   odam.nl         */
+/*   Updated: 2020/12/14 17:12:12 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,11 @@ int					main(void)
 		commands = ft_split(line, ';');
 		while (*commands)
 		{
+<<<<<<< HEAD
 			ret = parser(ft_split(*commands, ' '));
+=======
+			parser(state(*commands));
+>>>>>>> 432bcee66c0add3ba66a4c0ffd3e879ced553169
 			commands++;
 		}
 		free(line);
