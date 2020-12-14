@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: ldideric <ldideric@student.codam.nl>         +#+                      #
+#    By: jmelis <jmelis@student.codam.nl>             +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/12/07 20:43:44 by ldideric      ########   odam.nl          #
+#    Updated: 2020/12/07 21:45:32 by jmelis        ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -107,7 +107,9 @@ UTIL_SRC		=	flags.c \
 					env_utils2.c \
 					env_functions.c \
 					aborthandler.c \
-					error.c
+					error.c \
+					ft_exec.c \
+					is_path.c
 
 LIBFT_SRC_DIR	=	$(LIBFT_SRC:%=$(LIBFT_PATH)%)
 PRINTF_SRC_DIR	=	$(PRINTF_SRC:%=$(PRINTF_PATH)%)

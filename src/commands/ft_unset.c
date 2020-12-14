@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_unset.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/23 21:43:19 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/12/07 16:51:43 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/07 21:35:37 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

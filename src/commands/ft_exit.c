@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_exit.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 18:21:36 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/07 20:37:52 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/07 22:23:58 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void		ft_exit(char **line)
 		ms_error("exit: too many arguments", NULL);
 		return ;
 	}
-	if (i == 1 && !ft_ischarint(*line, ' '))
+	if (i == 1 && !ft_ischarint(*line, '-'))
 	{
 		ms_error("exit: %s: numeric argument required", *line);
 		return ;

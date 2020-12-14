@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_echo.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/09 17:09:32 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/11/14 18:33:31 by root          ########   odam.nl         */
+/*   Created: 2020/12/07 21:34:41 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/12/07 21:34:42 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

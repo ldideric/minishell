@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_env.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/23 19:10:48 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/12/07 17:29:34 by ldideric      ########   odam.nl         */
+/*   Created: 2020/12/07 21:34:47 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/12/07 21:34:48 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

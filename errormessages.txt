@@ -1,0 +1,7 @@
+Something went wrong while allocating memory for: %s
+Something went wrong while reading file with fd: %s
+%s is not a valid argument, did you mean --save?
+The file %s does not exist.
+Expected at least one argument.%s
+Something went wrong while opening file with path: '%s'
+Could not open new process

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_validate_file.c                                 :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 17:37:49 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/12/06 17:33:27 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/07 21:34:20 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_cd.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/14 18:00:36 by root          #+#    #+#                 */
-/*   Updated: 2020/12/07 20:37:41 by ldideric      ########   odam.nl         */
+/*   Created: 2020/12/07 21:34:34 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/12/07 21:34:35 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

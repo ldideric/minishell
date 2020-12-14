@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   env_functions.c                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/28 20:34:29 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/07 20:59:09 by ldideric      ########   odam.nl         */
+/*   Created: 2020/12/07 21:33:10 by jmelis        #+#    #+#                 */
+/*   Updated: 2020/12/07 21:33:12 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

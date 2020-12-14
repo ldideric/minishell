@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   minishell.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/07 20:55:43 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/07 22:40:08 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ void				parser(char **line)
 {
 	t_cfunc func;
 
+	if (is_path(line[0]))
+	{
+		ft_exec(line);
+		return ;
+	}
 	func = specifier(ft_strmapi(line[0], &ft_mapi_low));
 	if (func == NULL)
 	{
@@ -66,6 +71,7 @@ int					main(void)
 
 	mini_init();
 	ft_printf(CLEAR);
+	ft_printf("[ ] ");
 	while (1)
 	{
 		ft_printf(USER);

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   minishell.h                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
+/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/07 20:42:49 by ldideric      ########   odam.nl         */
+/*   Updated: 2020/12/07 22:38:31 by jmelis        ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ char					**state(char *s);
 int						realloc_state(char **s, char c, int new);
 t_sep					seperate_flags(char **args, char **flags, char c);
 void					free_line(char **line);
+void					ft_exec(char **line);
+int						is_path(char *str);
 
 /*
 ** Env Util Functions
