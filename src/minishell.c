@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   minishell.c                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 15:47:22 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/14 17:14:00 by jmelis        ########   odam.nl         */
+/*   Updated: 2021/01/07 17:36:20 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static t_cfunc		specifier(char *s)
 	return (ret);
 }
 
-int				parser(char **line)
+int					parser(char **line)
 {
 	t_cfunc func;
 
@@ -82,7 +82,7 @@ int					main(void)
 		commands = ft_split(line, ';');
 		while (*commands)
 		{
-			ret = parser(ft_split(*commands, ' '));
+			ret = parser(state(*commands));
 			commands++;
 		}
 		free(line);

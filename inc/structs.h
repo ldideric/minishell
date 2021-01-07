@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   structs.h                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 20:26:43 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/14 17:03:35 by jmelis        ########   odam.nl         */
+/*   Updated: 2021/01/07 16:33:45 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct			s_state
 {
 	char				c;
 	int					on;
+	int					new;
 }						t_state;
 
 #endif

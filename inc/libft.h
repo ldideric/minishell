@@ -6,7 +6,7 @@
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2019/10/31 13:47:21 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/07 20:42:05 by ldideric      ########   odam.nl         */
+/*   Updated: 2021/01/07 15:06:29 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ int					ft_ismatch(char c, char *s);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_skipchar(char *s, char c);
 char				**ft_realloc_arr(char ***ptr, int *i);
+char				**ft_arrdup(char **str);
 char				ft_mapi_low(unsigned int a, char c);
 void				ft_error(int code, char *arg);
 int					ft_validate_file(char *file_path, char *error, ...);

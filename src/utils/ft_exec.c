@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   ft_exec.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/07 21:33:54 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/12/07 22:36:34 by jmelis        ########   odam.nl         */
+/*   Updated: 2021/01/07 17:37:43 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_exec(char **line)
 	if (ret == 0)
 	{
 		if (execve(line[0], line + 1, environ) < 0)
-		ms_error("zsh: no such file or directory: %s", line[0]);
+			ms_error("zsh: no such file or directory: %s", line[0]);
 	}
 	else if (ret > 0)
 	{

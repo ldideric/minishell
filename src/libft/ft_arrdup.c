@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_split.c                                         :+:    :+:            */
+/*   ft_arrdup.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2020/11/09 20:58:15 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/11/15 15:16:47 by root          ########   odam.nl         */
+/*   Created: 2021/01/07 15:01:32 by ldideric      #+#    #+#                 */
+/*   Updated: 2021/01/07 15:06:10 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <minshell.h>
+#include <libft.h>
 
-char		**ft_split(char *s, char c)
+char	**ft_arrdup(char **str)
 {
-	int i;
+	char	**new;
+	int		j;
 
-	i = 0;
-	if (!s)
-		return (NULL)
-	while (s[i] != '\0')
+	j = 0;
+	if (!str)
+		return (NULL);
+	while (str[j] != NULL)
+		j++;
+	new = malloc(sizeof(char *) * (j + 1));
+	if (!new)
+		return (NULL);
+	j = 0;
+	while (str[j] != NULL)
 	{
-		
-		i++;
+		new[j] = ft_strdup(str[j]);
+		j++;
 	}
+	new[j] = NULL;
+	return (&new[0]);
 }

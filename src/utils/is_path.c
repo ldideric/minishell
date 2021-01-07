@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   is_path.c                                          :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/12/07 21:34:06 by jmelis        #+#    #+#                 */
-/*   Updated: 2020/12/07 21:50:47 by jmelis        ########   odam.nl         */
+/*   Updated: 2021/01/07 17:37:54 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

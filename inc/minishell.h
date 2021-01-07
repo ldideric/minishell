@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   minishell.h                                        :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: jmelis <jmelis@student.codam.nl>             +#+                     */
+/*   By: ldideric <ldideric@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/11/09 16:28:53 by ldideric      #+#    #+#                 */
-/*   Updated: 2020/12/14 16:49:48 by jmelis        ########   odam.nl         */
+/*   Updated: 2021/01/07 15:43:46 by ldideric      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,11 +59,10 @@ int						ft_clear(char **line);
 ** Utils Prototypes
 */
 
-
 char					**ft_strsplit(char const *s, char c);
 void					ms_error(char *message, char *var);
 char					**state(char *s);
-int						realloc_state(char **s, char c, int new);
+int						realloc_state(char ***s, char c, int new);
 t_sep					seperate_flags(char **args, char **flags, char c);
 void					free_line(char **line);
 void					ft_exec(char **line);
@@ -71,7 +70,7 @@ int						is_path(char *str);
 
 /*
 ** Env Util Functions
- */
+*/
 
 t_var					*read_var(char *s);
 void					new_env(char *value);

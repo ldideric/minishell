@@ -3,10 +3,10 @@
 #                                                         ::::::::             #
 #    Makefile                                           :+:    :+:             #
 #                                                      +:+                     #
-#    By: jmelis <jmelis@student.codam.nl>             +#+                      #
+#    By: ldideric <ldideric@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2020/11/09 16:30:23 by ldideric      #+#    #+#                  #
-#    Updated: 2020/12/14 16:50:11 by jmelis        ########   odam.nl          #
+#    Updated: 2021/01/07 15:06:51 by ldideric      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,8 @@ LIBFT_SRC		=	ft_memset.c \
 					ft_realloc_arr.c \
 					ft_mapi_low.c \
 					ft_error.c \
-					ft_validate_file.c
+					ft_validate_file.c \
+					ft_arrdup.c
 
 PRINTF_SRC		=	ft_printf.c \
 					ft_printf_bonus.c \
