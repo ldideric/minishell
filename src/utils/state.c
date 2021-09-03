@@ -81,3 +81,4 @@ char		**state(char *s)
 	arr[1] = NULL;
 	return (state_loop(&arr, s, st, i));
 }
+
